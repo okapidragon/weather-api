@@ -16,9 +16,9 @@ def home():
         global location
         response = (requests.get(f"https://api.weatherapi.com/v1/current.json?key=19e3ea7f765c4e42974134252252007&q={location}&aqi=yes")).json()
             if action == "is_day":
-              if response["current"][jsoninput] == "1":
+              if response["current"][action] == "1":
                   output_message = "Yes"
-              elif response["current"][jsoninput] == "0":
+              elif response["current"][action] == "0":
                   output_message = "No"
             elif action == "condition":
                 output_message = response["current"]["condition"]["text"]
