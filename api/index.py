@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import os
 import requests
-import sys
 import time
 
 template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates'))
