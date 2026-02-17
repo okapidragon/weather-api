@@ -44,5 +44,10 @@
       <button type="submit" name="action" value="pm10">PM10 levels</button>
       <button type="submit" name="action" value="us-epa-index">US EPA index</button>
       <button type="submit" name="action" value="gb-defra-index">UK DEFRA index</button>
+    </form>
+      
+    {% if result %}
+      <pre style="background: #f4f4f4; padding: 10px;">{{ result }}</pre>
+    {% endif %}
   </body>
 </html>
