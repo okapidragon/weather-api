@@ -26,4 +26,5 @@ def home():
                 output_message = response["current"]["air_quality"][action]
             else:
                 output_message = response["current"][action]
+    thing()
   return render_template("index.html", result=output_message)
