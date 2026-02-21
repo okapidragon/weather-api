@@ -3,7 +3,7 @@ import os
 import requests
 import time
 
-template_dir = os.path.abspath('../templates') 
+template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
 app = Flask(__name__, template_folder=template_dir)
 
 @app.route('/', methods=["GET", "POST"])
