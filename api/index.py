@@ -3,10 +3,10 @@ import os
 import requests
 import time
 
-template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates'))
+template_dir = os.path.abspath('../templates') 
 app = Flask(__name__, template_folder=template_dir)
 
-@app.route("/", methods=["GET", "POST"])
+@app.route('/', methods=["GET", "POST"])
 def home():
   output_message = ""
   if request.method == "POST":
