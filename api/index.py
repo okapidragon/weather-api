@@ -8,21 +8,21 @@ app = Flask(__name__, template_folder=template_dir)
 
 @app.route('/', methods=["GET", "POST"])
 def home():
-  output_message = ""
-  if request.method == "POST":
-    location = request.form.get('location')
-    action = request.form.get('action')
-      global location
-      response = (requests.get(f"https://api.weatherapi.com/v1/current.json?key=19e3ea7f765c4e42974134252252007&q={location}&aqi=yes")).json()
+    output_message = ""
+    if request.method == "POST":
+        location = request.form.get('location')
+        action = request.form.get('action')
+        # Removed 'global' and fixed indentation below
+        response = (requests.get(f"https://api.weatherapi.com/v1/current.json?key=19e3ea7f765c4e42974134252252007&q={location}&aqi=yes")).json()
         if action == "is_day":
-          if response["current"][action] == "1":
-              output_message = "Yes"
-          elif response["current"][action] == "0":
-              output_message = "No"
+            if response["current"][action] == "1":
+                output_message = "Yes"
+            elif response["current"][action] == "0":
+                output_message = "No"
         elif action == "condition":
             output_message = response["current"]["condition"]["text"]
         elif action == "co" or action == "no2" or action == "o3" or action == "so2" or action == "pm2_5" or action == "pm10" or action == "us-epa-index" or action == "gb-defra-index":
             output_message = response["current"]["air_quality"][action]
         else:
             output_message = response["current"][action]
-  return render_template("index.html", result=output_message)
+    return render_template("index.html", result=output_message)
